@@ -421,10 +421,8 @@ func writeCon(fpath, val string) error {
 	if fpath == "" {
 		return ErrEmptyPath
 	}
-	if val == "" {
-		if !getEnabled() {
-			return nil
-		}
+	if val == "" && !getEnabled() {
+		return nil
 	}
 
 	out, err := os.OpenFile(fpath, os.O_WRONLY, 0)

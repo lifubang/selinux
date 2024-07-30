@@ -46,11 +46,6 @@ var FileLabel = selinux.FileLabel
 // Deprecated: use selinux.PidLabel
 var PidLabel = selinux.PidLabel
 
-// Init initialises the labeling system
-func Init() {
-	_ = selinux.GetEnabled()
-}
-
 // ClearLabels will clear all reserved labels
 // Deprecated: use selinux.ClearLabels
 var ClearLabels = selinux.ClearLabels

@@ -87,7 +87,7 @@ func GenLabels(options string) (string, string, error) {
 
 // SetFileLabel modifies the "path" label to the specified file label
 func SetFileLabel(path string, fileLabel string) error {
-	if !selinux.GetEnabled() || fileLabel == "" {
+	if fileLabel == "" || !selinux.GetEnabled() {
 		return nil
 	}
 	return selinux.SetFileLabel(path, fileLabel)
@@ -107,7 +107,7 @@ func SetFileCreateLabel(fileLabel string) error {
 //
 // The path itself is guaranteed to be relabeled last.
 func Relabel(path string, fileLabel string, shared bool) error {
-	if !selinux.GetEnabled() || fileLabel == "" {
+	if fileLabel == "" || !selinux.GetEnabled() {
 		return nil
 	}
 
